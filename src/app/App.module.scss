@@ -1,0 +1,10 @@
+.app {
+  height: 100vh;
+}
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--app-header-height));
+}

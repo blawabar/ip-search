@@ -1,0 +1,11 @@
+.searchPage {
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 35vh auto 35vh;
+  grid-template-areas:
+    "searchHistoryList userInfo"
+    "searchHistoryList searchForm"
+    "searchHistoryList searchResult";
+  grid-gap: var(--grid-spacing);
+  width: 1280px;
+}

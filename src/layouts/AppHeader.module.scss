@@ -1,0 +1,9 @@
+.appHeader {
+  display: flex;
+  align-items: center;
+  height: var(--app-header-height);
+  padding-left: 1em;
+  font-size: 1.25rem;
+  background-color: var(--dark-blue);
+  color: var(--white);
+}
