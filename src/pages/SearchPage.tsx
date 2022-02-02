@@ -1,5 +1,5 @@
 import { SearchForm } from "../components/SearchForm";
-import { SearchHistoryList } from "../components/SearchHistoryList";
+import { SearchHistory } from "../components/SearchHistory";
 import { SearchResult } from "../components/SearchResult";
 import { UserInfo } from "../components/UserInfo";
 
@@ -8,7 +8,7 @@ import styles from "./SearchPage.module.scss";
 const SearchPage = () => {
   return (
     <div className={styles.searchPage}>
-      <SearchHistoryList />
+      <SearchHistory />
       <UserInfo />
       <SearchForm />
       <SearchResult />
