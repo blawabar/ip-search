@@ -1,4 +1,45 @@
 .searchForm {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
   grid-area: searchForm;
-  background-color: blue;
+
+  input {
+    font-family: var(--main-font);
+    border: 1px solid var(--dark-blue);
+  }
+}
+
+.formRow {
+  position: relative;
+  width: 82.5%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 4px 8px;
+  outline: none;
+}
+
+.formErrMsg {
+  position: absolute;
+  width: 100%;
+  padding: 4px 8px;
+  background-color: var(--white);
+  color: var(--red);
+  font-size: 0.75rem;
+}
+
+.submitBtn {
+  width: 15%;
+  padding: 4px 8px;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--dark-blue);
+    color: var(--white);
+  }
 }
