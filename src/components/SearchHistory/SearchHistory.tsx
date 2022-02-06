@@ -1,9 +1,10 @@
+import { Heading } from "../Heading";
 import styles from "./SearchHistory.module.scss";
 
 const SearchHistory = () => {
   return (
     <div className={styles.searchHistory}>
-      <h3 className={styles.heading}>Recent searches</h3>
+      <Heading text="Recent searches" />
       <ul className={styles.searchesList}>
         <li>192.168.0.1 - First</li>
         <li>192.168.0.1 - Toronto</li>

@@ -1,11 +1,10 @@
 .searchHistory {
-  display: grid;
-  grid-template-rows: 35px calc(100% - 35px);
   grid-area: searchHistory;
   background-color: var(--light-grey);
 }
 
 .searchesList {
+  height: calc(100% - var(--fixed-heading-height));
   padding: 4px 8px;
   list-style: none;
   overflow-y: scroll;
@@ -22,14 +21,4 @@
       border-bottom: none;
     }
   }
-}
-
-.heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--white);
-  color: var(--dark-blue);
-  font-size: 1rem;
-  letter-spacing: 0.125em;
 }
