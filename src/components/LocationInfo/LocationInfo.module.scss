@@ -1,3 +1,27 @@
 .locationInfo {
-  background-color: red;
+  background-color: var(--light-grey);
+}
+
+.infoList {
+  padding: 4px 8px;
+  list-style: none;
+  font-size: 0.75rem;
+
+  li {
+    padding: 8px 4px;
+    border-bottom: 2px solid var(--light-blue);
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    span:first-of-type {
+      font-weight: 700;
+      padding-right: 8px;
+
+      &::after {
+        content: ":";
+      }
+    }
+  }
 }
