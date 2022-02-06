@@ -1,3 +1,5 @@
 .locationMap {
-  background-color: green;
+  :global(.leaflet-container) {
+    height: 100%;
+  }
 }

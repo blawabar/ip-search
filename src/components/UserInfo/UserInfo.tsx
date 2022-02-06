@@ -6,8 +6,8 @@ import styles from "./UserInfo.module.scss";
 const locationInfoData = {
   headingText: "User information",
   ipAddress: "88.96.24.126",
-  latitude: 53.234,
-  longitude: 16.345,
+  latitude: 53.438056,
+  longitude: 14.542222,
   continent: "Europa",
   country: "Poland",
   region: "Western Pomerania",
@@ -17,7 +17,9 @@ const locationInfoData = {
 const UserInfo = () => {
   return (
     <div className={styles.userInfo}>
-      <LocationMap />
+      <LocationMap
+        center={[locationInfoData.latitude, locationInfoData.longitude]}
+      />
       <LocationInfo {...locationInfoData} />
     </div>
   );

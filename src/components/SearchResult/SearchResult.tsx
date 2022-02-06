@@ -17,7 +17,9 @@ const locationInfoData = {
 const SearchResult = () => {
   return (
     <div className={styles.searchResult}>
-      <LocationMap />
+      <LocationMap
+        center={[locationInfoData.latitude, locationInfoData.longitude]}
+      />
       <LocationInfo {...locationInfoData} />
     </div>
   );
