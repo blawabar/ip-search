@@ -7,12 +7,15 @@ import styles from "./SearchPage.module.scss";
 
 const SearchPage = () => {
   return (
-    <div className={styles.searchPage}>
-      <SearchHistory />
-      <UserInfo />
-      <SearchForm />
-      <SearchResult />
-    </div>
+    <>
+      <p className={styles.info}>this resolution is not supported</p>
+      <div className={styles.searchPage}>
+        <SearchHistory />
+        <UserInfo />
+        <SearchForm />
+        <SearchResult />
+      </div>
+    </>
   );
 };
 

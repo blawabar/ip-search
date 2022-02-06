@@ -1,11 +1,30 @@
 .searchPage {
-  display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-rows: 35vh 50px 35vh;
-  grid-template-areas:
-    "searchHistory userInfo"
-    "searchHistory searchForm"
-    "searchHistory searchResult";
-  grid-gap: var(--grid-spacing);
-  width: 1280px;
+  display: none;
+
+  @media (min-width: 767px) {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 35vh 50px 35vh;
+    grid-template-areas:
+      "searchHistory userInfo"
+      "searchHistory searchForm"
+      "searchHistory searchResult";
+    grid-gap: var(--grid-spacing);
+    width: 90%;
+    max-width: 1400px;
+  }
+
+  @media (min-width: 1650px) {
+    grid-template-rows: 25vh 50px 25vh;
+  }
+}
+
+.info {
+  font-weight: 700;
+  color: var(--dark-blue);
+  text-transform: uppercase;
+
+  @media (min-width: 767px) {
+    display: none;
+  }
 }
