@@ -27,6 +27,10 @@ export type RawResponseData = {
   };
 };
 
+export type RawDetailNotFound = {
+  detail: string;
+};
+
 export type RawResponseError = {
   success: boolean;
   error: {
@@ -36,7 +40,10 @@ export type RawResponseError = {
   };
 };
 
-export type RawLookupResult = RawResponseData | RawResponseError;
+export type RawLookupResult =
+  | RawResponseData
+  | RawResponseError
+  | RawDetailNotFound;
 
 export type NormalizedResponseData = {
   ipAddress: string;

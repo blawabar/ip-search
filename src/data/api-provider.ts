@@ -2,6 +2,7 @@ import axios from "axios";
 import { BASE_URL, ACCESS_KEY } from "./constants";
 import {
   NormalizedResponseData,
+  RawDetailNotFound,
   RawLookupResult,
   RawResponseData,
   RawResponseError,
@@ -23,6 +24,13 @@ export class APIProvider {
 
       if (status !== 200) {
         throw new Error(`${status} - ${statusText}`);
+      }
+
+      const isDetailNotFound =
+        (data as RawDetailNotFound).detail === "Not Found";
+
+      if (isDetailNotFound) {
+        throw new Error("Lookup failed - please try again");
       }
 
       const errorResponse = data as RawResponseError;
