@@ -10,25 +10,32 @@ const SearchResult = () => {
   const data = useAppSelector((state) => state.searchResult.data);
   const error = useAppSelector((state) => state.searchResult.error);
 
-  return isLoading ? (
+  const Body = () =>
+    isLoading ? (
+      <>
+        <Skeleton message="Loading lookup data..." />
+        <Skeleton message="Loading lookup data..." />
+      </>
+    ) : data ? (
+      <>
+        <LocationMap center={[data.latitude, data.longitude]} />
+        <LocationInfo headingText="Last search information" {...data} />
+      </>
+    ) : error ? (
+      <>
+        <Skeleton message={error} />
+        <Skeleton message={error} />
+      </>
+    ) : (
+      <>
+        <Skeleton message="No lookup data" />
+        <Skeleton message="No lookup data" />
+      </>
+    );
+
+  return (
     <div className={styles.searchResult}>
-      <Skeleton message="Loading lookup data..." />
-      <Skeleton message="Loading lookup data..." />
-    </div>
-  ) : data ? (
-    <div className={styles.searchResult}>
-      <LocationMap center={[data.latitude, data.longitude]} />
-      <LocationInfo headingText="Last search information" {...data} />
-    </div>
-  ) : error ? (
-    <div className={styles.searchResult}>
-      <Skeleton message={error} />
-      <Skeleton message={error} />
-    </div>
-  ) : (
-    <div className={styles.searchResult}>
-      <Skeleton message="No lookup data" />
-      <Skeleton message="No lookup data" />
+      <Body />
     </div>
   );
 };

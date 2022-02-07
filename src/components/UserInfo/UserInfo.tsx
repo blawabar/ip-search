@@ -15,19 +15,29 @@ const UserInfo = () => {
     dispatch(getUserData());
   }, [dispatch]);
 
-  return isLoading ? (
+  const Body = () =>
+    isLoading ? (
+      <>
+        <Skeleton message="Loading user data..." />
+        <Skeleton message="Loading user data..." />
+      </>
+    ) : data ? (
+      <>
+        <LocationMap center={[data.latitude, data.longitude]} />
+        <LocationInfo headingText="User information" {...data} />
+      </>
+    ) : error ? (
+      <>
+        <Skeleton message={error} />
+        <Skeleton message={error} />
+      </>
+    ) : null;
+
+  return (
     <div className={styles.userInfo}>
-      <Skeleton message="Loading user data..." />
-      <Skeleton message="Loading user data..." />
+      <Body />
     </div>
-  ) : data ? (
-    <div className={styles.userInfo}>
-      <LocationMap center={[data.latitude, data.longitude]} />
-      <LocationInfo headingText="User information" {...data} />
-    </div>
-  ) : error ? (
-    <p>{error}</p>
-  ) : null;
+  );
 };
 
 export default UserInfo;
