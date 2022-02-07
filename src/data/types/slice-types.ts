@@ -7,6 +7,7 @@ export interface UserInfoState {
 }
 
 export interface SearchHistoryItem {
+  id: string;
   ipAddress: string;
   city: string;
 }

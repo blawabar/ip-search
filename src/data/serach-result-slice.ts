@@ -28,9 +28,10 @@ const searchResultSlice = createSlice({
 
         const newData = action.payload;
         state.data = newData;
-
         const { ipAddress, city } = newData;
-        state.searchHistory.push({ ipAddress, city });
+        const id = `${state.searchHistory.length}-${ipAddress}-${city}`;
+
+        state.searchHistory.push({ ipAddress, city, id });
       })
       .addCase(getSearchResultDataRejected, (state, action) => {
         state.isLoading = false;

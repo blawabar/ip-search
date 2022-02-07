@@ -11,8 +11,8 @@ const SearchHistory = () => {
     <div className={styles.searchHistory}>
       <Heading text="Recent searches" />
       <ul className={styles.searchesList}>
-        {searchHistoryData.map(({ ipAddress, city }) => (
-          <li>{`${ipAddress} - ${city}`}</li>
+        {searchHistoryData.map(({ ipAddress, city, id }) => (
+          <li key={id}>{`${ipAddress} - ${city}`}</li>
         ))}
       </ul>
     </div>
