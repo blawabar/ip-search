@@ -1,4 +1,28 @@
-# Getting Started with Create React App
+# IP Search Engine
+
+This **IP Search Engine** is based upon an [ipstack Free IP Geolocation API](https://ipstack.com/documentation) delivered by the [ipstack](https://ipstack.com/).
+
+## Main features
+
+You have the possibility to lookup data upon a valid external IP address or a valid domain name.
+
+Please be advised, that providing e.g. a private IP like `192.168.1.110` will be rejected at the UI application level. The same situation will happen if a protocol prefix like (`http`s or `http`) is provided - those are the restrictions of the API itself.
+
+At the top level there will be always displayed details of the requestor position and location.
+
+Below the form position and location details are populated once the lookup operation finishes successfully.
+
+Additionally you are able to track your search history at the left panel with the heading `Recent searches`
+
+## Warning
+
+Since the current implementation uses a free plan, **which allows to send 100 request per month only**, please do not abuse it. Otherwise the lookup will not be possible until a new account with a new key is created and activated.
+
+# Setup and installation instructions
+
+Please follow the instructions below.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
