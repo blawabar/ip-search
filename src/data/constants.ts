@@ -1,2 +1,2 @@
 export const BASE_URL = "http://api.ipstack.com";
-export const ACCESS_KEY = "7d02ff6855bb15b3a8b622326e518bfa";
+export const ACCESS_KEY = "92cf706244b39a9df552fbb7a22727c6";
