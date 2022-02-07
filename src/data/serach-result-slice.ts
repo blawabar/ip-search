@@ -20,6 +20,8 @@ const searchResultSlice = createSlice({
     builder
       .addCase(getSearchResultDataPending, (state) => {
         state.isLoading = true;
+        delete state.data;
+        delete state.error;
       })
       .addCase(getSearchResultDataFulfilled, (state, action) => {
         state.isLoading = false;

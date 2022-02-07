@@ -90,27 +90,27 @@ describe("validateSearchPhrase", () => {
     },
   );
 
+  it.each(["google.com", "www.google.com", "wp.pl"])(
+    "should check if a '%s' is a valid lookup domain name",
+    (domain) => {
+      // arrange
+
+      // act
+      const result = validateSearchPhrase(domain);
+
+      // assert
+      expect(result).toBeTruthy();
+    },
+  );
+
   it.each([
     "https://www.google.com",
     "http://www.google.com",
-    "www.google.com",
-    "wp.pl",
-  ])("should check if a '%s' is a valid domain name", (domain) => {
-    // arrange
-
-    // act
-    const result = validateSearchPhrase(domain);
-
-    // assert
-    expect(result).toBeTruthy();
-  });
-
-  it.each([
     "htt://www.google.com",
     "://www.google.com",
     "www.google.",
     "wp.pl.",
-  ])("should check if a '%s' is an invalid domain name", (domain) => {
+  ])("should check if a '%s' is an invalid lookup domain name", (domain) => {
     // arrange
 
     // act

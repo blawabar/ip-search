@@ -47,7 +47,7 @@ const SearchForm = () => {
       <div className={styles.formRow}>
         <input
           type="search"
-          placeholder="Enter a valid IP or a domain name"
+          placeholder="Enter a valid external IP or a domain name"
           className={styles.searchInput}
           {...register("searchPhrase")}
         />
