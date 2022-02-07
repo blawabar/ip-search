@@ -1,28 +1,24 @@
+import { useAppSelector } from "../../data/hooks";
 import { LocationInfo } from "../LocationInfo";
 import { LocationMap } from "../LocationMap";
 
 import styles from "./SearchResult.module.scss";
 
-const locationInfoData = {
-  headingText: "Last search information",
-  ipAddress: "88.96.24.128",
-  latitude: 54.234,
-  longitude: 18.345,
-  continent: "Europa",
-  country: "Poland",
-  region: "Pomerania",
-  city: "Gdansk",
-};
-
 const SearchResult = () => {
-  return (
+  const isLoading = useAppSelector((state) => state.searchResult.isLoading);
+  const data = useAppSelector((state) => state.searchResult.data);
+  const error = useAppSelector((state) => state.searchResult.error);
+
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : data ? (
     <div className={styles.searchResult}>
-      <LocationMap
-        center={[locationInfoData.latitude, locationInfoData.longitude]}
-      />
-      <LocationInfo {...locationInfoData} />
+      <LocationMap center={[data.latitude, data.longitude]} />
+      <LocationInfo headingText="Last search information" {...data} />
     </div>
-  );
+  ) : error ? (
+    <p>{error}</p>
+  ) : null;
 };
 
 export default SearchResult;

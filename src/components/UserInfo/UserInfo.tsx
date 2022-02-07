@@ -1,28 +1,29 @@
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../data/hooks";
+import { getUserData } from "../../data/user-info-thunk";
 import { LocationInfo } from "../LocationInfo";
 import { LocationMap } from "../LocationMap";
 
 import styles from "./UserInfo.module.scss";
 
-const locationInfoData = {
-  headingText: "User information",
-  ipAddress: "88.96.24.126",
-  latitude: 53.438056,
-  longitude: 14.542222,
-  continent: "Europa",
-  country: "Poland",
-  region: "Western Pomerania",
-  city: "Szczecin",
-};
-
 const UserInfo = () => {
-  return (
+  const dispatch = useAppDispatch();
+  const { isLoading, data, error } = useAppSelector((state) => state.userInfo);
+
+  useEffect(() => {
+    dispatch(getUserData());
+  }, [dispatch]);
+
+  return isLoading ? (
+    <p>Loading user data...</p>
+  ) : data ? (
     <div className={styles.userInfo}>
-      <LocationMap
-        center={[locationInfoData.latitude, locationInfoData.longitude]}
-      />
-      <LocationInfo {...locationInfoData} />
+      <LocationMap center={[data.latitude, data.longitude]} />
+      <LocationInfo headingText="User information" {...data} />
     </div>
-  );
+  ) : error ? (
+    <p>{error}</p>
+  ) : null;
 };
 
 export default UserInfo;

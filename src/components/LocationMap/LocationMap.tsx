@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
 
 import styles from "./LocationMap.module.scss";
 
@@ -14,13 +14,7 @@ const CustomMarker = ({ position }: { position: [number, number] }) => {
     map.flyTo(position);
   }, [position, map]);
 
-  return (
-    <Marker position={position}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
-  );
+  return <Marker position={position}></Marker>;
 };
 
 const LocationMap: FC<LocationMapProps> = ({ center }) => {
@@ -31,11 +25,6 @@ const LocationMap: FC<LocationMapProps> = ({ center }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* <Marker position={center}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker> */}
         <CustomMarker position={center} />
       </MapContainer>
     </div>

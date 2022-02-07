@@ -43,7 +43,7 @@ export class APIProvider {
   }
 
   public static async getUserData(): Promise<NormalizedResponseData> {
-    return APIProvider.getLookupData("checkd");
+    return APIProvider.getLookupData("check");
   }
 
   public static async getSearchData(
