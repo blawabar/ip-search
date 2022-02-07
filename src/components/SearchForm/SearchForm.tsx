@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../data/hooks";
 import { getSearchResultData } from "../../data/search-result-thunk";
 import styles from "./SearchForm.module.scss";
 import { validateSearchPhrase } from "../../data/utils";
+
 interface FormData {
   searchPhrase: string;
 }
@@ -16,7 +17,7 @@ const schema = yup
       .string()
       .test(
         "isSearchPhraseValid",
-        "Please enter a valid IP or a domain name",
+        "Please enter a valid external IP or a domain name",
         function (searchPhraseValue) {
           if (searchPhraseValue) {
             return validateSearchPhrase(searchPhraseValue);
@@ -31,9 +32,10 @@ const SearchForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: yupResolver(schema),
+    mode: "onSubmit",
   });
 
   const dispatch = useAppDispatch();
@@ -49,11 +51,17 @@ const SearchForm = () => {
           type="search"
           placeholder="Enter a valid external IP or a domain name"
           className={styles.searchInput}
+          disabled={isSubmitting}
           {...register("searchPhrase")}
         />
         {errorMessage && <p className={styles.formErrMsg}>{errorMessage}</p>}
       </div>
-      <input type="submit" value="Lookup" className={styles.submitBtn} />
+      <input
+        type="submit"
+        value="Lookup"
+        className={styles.submitBtn}
+        disabled={isSubmitting}
+      />
     </form>
   );
 };
