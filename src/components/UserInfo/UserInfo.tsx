@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../data/hooks";
 import { getUserData } from "../../data/user-info-thunk";
 import { LocationInfo } from "../LocationInfo";
+import { Skeleton } from "../Skeleton";
 import { LocationMap } from "../LocationMap";
 
 import styles from "./UserInfo.module.scss";
@@ -15,7 +16,10 @@ const UserInfo = () => {
   }, [dispatch]);
 
   return isLoading ? (
-    <p>Loading user data...</p>
+    <div className={styles.userInfo}>
+      <Skeleton message="Loading user data..." />
+      <Skeleton message="Loading user data..." />
+    </div>
   ) : data ? (
     <div className={styles.userInfo}>
       <LocationMap center={[data.latitude, data.longitude]} />
